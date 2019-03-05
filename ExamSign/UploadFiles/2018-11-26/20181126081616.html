@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+ <head>
+  <title>Making things move</title>
+  <meta charset="gbk">
+	
+  <script type="text/javascript">
+    var canvas,context;
+    var canvasWidth,canvasHeight; 	
+    var playAnimation = true;
+				
+    var startButton,stopButton;
+    var canvas1,context1;
+    var shapes = new Array();
+
+  function init() {	
+    canvas = document.getElementById("myCanvas");
+    context = canvas.getContext("2d");
+			
+    canvasWidth = canvas.width;
+    canvasHeight = canvas.height;		
+    startButton = document.getElementById("startAnimation");
+    startButton.disabled="disabled";
+    stopButton = document.getElementById("stopAnimation");
+
+    shapes.push(new Shape(150, 150, 100,5));
+    shapes.push(new Shape(300, 300, 100,10));
+
+    var canvas1 = document.getElementById("myCanvas1");
+    var context1 = canvas1.getContext("2d");
+    context1.arc(150,150,100,0,2*Math.PI,false);
+    context1.stroke();//绘制圆
+    context1.beginPath();
+    context1.arc(300,300,100,0,2*Math.PI,true); 
+    context1.strokeStyle="red";
+    context1.stroke();//绘制圆
+
+    startButton.onclick=function() {
+      this.disabled="disabled";
+      stopButton.disabled="";
+      playAnimation = true;
+      animate();
+   }
+
+   stopButton.onclick=function() {
+      this.disabled="disabled";
+      startButton.disabled="";
+      playAnimation = false;
+   }
+   
+  //animate();
+
+ }
+    
+   var Shape = function(x, y,radius,angle) {
+     this.x = x;
+     this.y = y;
+     this.radius=radius;
+     this.angle = angle;
+    };
+				
+ function animate() {
+  context.clearRect(0, 0, canvasWidth, canvasHeight);
+  var shapesLength = shapes.length;
+  for (var i = 0; i < shapesLength; i++) {
+    var tmpShape = shapes[i];				
+    var x = tmpShape.x+(tmpShape.radius*Math.cos(tmpShape.angle*(Math.PI/180)));
+    var y = tmpShape.y+(tmpShape.radius*Math.sin(tmpShape.angle*(Math.PI/180)));
+    if(i==0) tmpShape.angle += 5;
+    else tmpShape.angle += 10;
+
+    if (tmpShape.angle > 360) {
+      tmpShape.angle = 0;	
+    };					
+    context.fillRect(x, y, 10, 10);
+  }
+				
+  if (playAnimation) {
+    setTimeout(animate, 33);
+  }
+ }
+				
+ 
+</script>
+</head>
+
+<body onload="init();">
+    <canvas id="myCanvas" width="800" height="450" style="background-color: transparent;position:absolute"></canvas>
+  <canvas id="myCanvas1" width="800" height="450"></canvas>
+  <div>
+    <button id="startAnimation">Start</button>
+    <button id="stopAnimation">Stop</button>
+  </div>
+   <audio src="https://gzst-jy.oss-cn-shenzhen.aliyuncs.com/sttsk%2Fstuvideo%2F2018-09-11%2F48%2F5b95e4f682e32d5f946417d0%2Fe9c44c70-3770-4e08-82b5-d0aabc9361a9.mp3" autoplay controls style="width:100%;"></audio>
+</body>
+</html>

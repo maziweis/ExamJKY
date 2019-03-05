@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue练习</title>
+	<script type="text/javascript" src="https://unpkg.com/vue@2.5.16/dist/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button @click="changeData">改变</button>
+		<button @click="getData">获取</button>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#app',
+			data: {
+				myArray: []
+			},
+			methods: {
+				changeData: function() {
+					this.myArray.push(1);
+					this.myArray.push(2);
+					this.myArray.push(3);
+				},
+				getData:function() {
+					console.log(this.myArray);
+				}
+			}
+		})
+	</script>
+</body>
+</html>

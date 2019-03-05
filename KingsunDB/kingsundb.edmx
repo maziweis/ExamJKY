@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="kingsundbNewModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“kingsundbNew.dbo.tb_J_ExamStudent”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="tb_J_ExamStudent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CourseID" Type="int" />
+          <Property Name="YK_num" Type="int" />
+          <Property Name="SK_num" Type="int" />
+          <Property Name="QK_num" Type="int" />
+          <Property Name="UpTime" Type="datetime" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“kingsundbNew.dbo.tb_J_MessageData”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="tb_J_MessageData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolID" Type="nvarchar" MaxLength="50" />
+          <Property Name="K_Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="YW_RoomNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="YW_SiteNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="LS_RoomNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="LS_SiteNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="WS_RoomNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="WS_SiteNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="EN_RoomNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="EN_SiteNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="LZ_RoomNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="LZ_SiteNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="WZ_RoomNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="WZ_SiteNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZK_Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="text" />
+          <Property Name="StudentClass" Type="nvarchar" MaxLength="20" />
+          <Property Name="YW_Teacher" Type="nvarchar" MaxLength="20" />
+          <Property Name="LiShu_Teacher" Type="nvarchar" MaxLength="20" />
+          <Property Name="WS_Teacher" Type="nvarchar" MaxLength="20" />
+          <Property Name="EN_Teacher" Type="nvarchar" MaxLength="20" />
+          <Property Name="WL_Teacher" Type="nvarchar" MaxLength="20" />
+          <Property Name="HX_Teacher" Type="nvarchar" MaxLength="20" />
+          <Property Name="SW_Teacher" Type="nvarchar" MaxLength="20" />
+          <Property Name="ZZ_Teacher" Type="nvarchar" MaxLength="20" />
+          <Property Name="LiShi_Teacher" Type="nvarchar" MaxLength="20" />
+          <Property Name="DL_Teacher" Type="nvarchar" MaxLength="20" />
+          <Property Name="StudentID" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tb_J_School">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolID" Type="nvarchar" MaxLength="50" />
+          <Property Name="SchoolName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PersonName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="QQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="SchoolFullName" Type="varchar" MaxLength="100" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="Pwd" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“kingsundbNew.dbo.tb_J_SchoolCourse”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="tb_J_SchoolCourse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseName" Type="varchar" MaxLength="50" />
+          <Property Name="flag" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_J_Teacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolID" Type="nvarchar" MaxLength="50" />
+          <Property Name="SchoolName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeacherID" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeacherSex" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeacherTel" Type="nvarchar" MaxLength="50" />
+          <Property Name="PersonName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="QQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar(max)" />
+          <Property Name="IDNum" Type="nvarchar" MaxLength="30" />
+          <Property Name="BankNum" Type="nvarchar" MaxLength="30" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tb_J_TestOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="Num" Type="int" />
+          <Property Name="FreeNum" Type="int" />
+          <Property Name="UpTime" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="kingsundbNewModelStoreContainer">
+          <EntitySet Name="tb_J_School" EntityType="Self.tb_J_School" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_J_Teacher" EntityType="Self.tb_J_Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_J_TestOrder" EntityType="Self.tb_J_TestOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_J_ExamStudent" EntityType="Self.tb_J_ExamStudent" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tb_J_ExamStudent].[ID] AS [ID], 
+    [tb_J_ExamStudent].[SchoolID] AS [SchoolID], 
+    [tb_J_ExamStudent].[CourseID] AS [CourseID], 
+    [tb_J_ExamStudent].[YK_num] AS [YK_num], 
+    [tb_J_ExamStudent].[SK_num] AS [SK_num], 
+    [tb_J_ExamStudent].[QK_num] AS [QK_num], 
+    [tb_J_ExamStudent].[UpTime] AS [UpTime]
+    FROM [dbo].[tb_J_ExamStudent] AS [tb_J_ExamStudent]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tb_J_MessageData" EntityType="Self.tb_J_MessageData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tb_J_MessageData].[ID] AS [ID], 
+    [tb_J_MessageData].[SchoolID] AS [SchoolID], 
+    [tb_J_MessageData].[K_Number] AS [K_Number], 
+    [tb_J_MessageData].[StudentName] AS [StudentName], 
+    [tb_J_MessageData].[YW_RoomNum] AS [YW_RoomNum], 
+    [tb_J_MessageData].[YW_SiteNum] AS [YW_SiteNum], 
+    [tb_J_MessageData].[LS_RoomNum] AS [LS_RoomNum], 
+    [tb_J_MessageData].[LS_SiteNum] AS [LS_SiteNum], 
+    [tb_J_MessageData].[WS_RoomNum] AS [WS_RoomNum], 
+    [tb_J_MessageData].[WS_SiteNum] AS [WS_SiteNum], 
+    [tb_J_MessageData].[EN_RoomNum] AS [EN_RoomNum], 
+    [tb_J_MessageData].[EN_SiteNum] AS [EN_SiteNum], 
+    [tb_J_MessageData].[LZ_RoomNum] AS [LZ_RoomNum], 
+    [tb_J_MessageData].[LZ_SiteNum] AS [LZ_SiteNum], 
+    [tb_J_MessageData].[WZ_RoomNum] AS [WZ_RoomNum], 
+    [tb_J_MessageData].[WZ_SiteNum] AS [WZ_SiteNum], 
+    [tb_J_MessageData].[ZK_Number] AS [ZK_Number], 
+    [tb_J_MessageData].[Remark] AS [Remark], 
+    [tb_J_MessageData].[StudentClass] AS [StudentClass], 
+    [tb_J_MessageData].[YW_Teacher] AS [YW_Teacher], 
+    [tb_J_MessageData].[LiShu_Teacher] AS [LiShu_Teacher], 
+    [tb_J_MessageData].[WS_Teacher] AS [WS_Teacher], 
+    [tb_J_MessageData].[EN_Teacher] AS [EN_Teacher], 
+    [tb_J_MessageData].[WL_Teacher] AS [WL_Teacher], 
+    [tb_J_MessageData].[HX_Teacher] AS [HX_Teacher], 
+    [tb_J_MessageData].[SW_Teacher] AS [SW_Teacher], 
+    [tb_J_MessageData].[ZZ_Teacher] AS [ZZ_Teacher], 
+    [tb_J_MessageData].[LiShi_Teacher] AS [LiShi_Teacher], 
+    [tb_J_MessageData].[DL_Teacher] AS [DL_Teacher], 
+    [tb_J_MessageData].[StudentID] AS [StudentID]
+    FROM [dbo].[tb_J_MessageData] AS [tb_J_MessageData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tb_J_SchoolCourse" EntityType="Self.tb_J_SchoolCourse" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tb_J_SchoolCourse].[ID] AS [ID], 
+    [tb_J_SchoolCourse].[CourseName] AS [CourseName], 
+    [tb_J_SchoolCourse].[flag] AS [flag]
+    FROM [dbo].[tb_J_SchoolCourse] AS [tb_J_SchoolCourse]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="kingsundbNewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_J_School">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="Pwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_J_Teacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherSex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IDNum" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BankNum" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_J_TestOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="Num" Type="Int32" />
+          <Property Name="FreeNum" Type="Int32" />
+          <Property Name="UpTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tb_J_ExamStudent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CourseID" Type="Int32" />
+          <Property Name="YK_num" Type="Int32" />
+          <Property Name="SK_num" Type="Int32" />
+          <Property Name="QK_num" Type="Int32" />
+          <Property Name="UpTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tb_J_MessageData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="K_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YW_RoomNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YW_SiteNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LS_RoomNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LS_SiteNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WS_RoomNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WS_SiteNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EN_RoomNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EN_SiteNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LZ_RoomNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LZ_SiteNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WZ_RoomNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WZ_SiteNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZK_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StudentClass" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="YW_Teacher" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LiShu_Teacher" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="WS_Teacher" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EN_Teacher" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="WL_Teacher" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HX_Teacher" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SW_Teacher" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ZZ_Teacher" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LiShi_Teacher" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DL_Teacher" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="StudentID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_J_SchoolCourse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="flag" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="kingsundbNewEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_J_School" EntityType="Self.tb_J_School" />
+          <EntitySet Name="tb_J_Teacher" EntityType="Self.tb_J_Teacher" />
+          <EntitySet Name="tb_J_TestOrder" EntityType="Self.tb_J_TestOrder" />
+          <EntitySet Name="tb_J_ExamStudent" EntityType="Self.tb_J_ExamStudent" />
+          <EntitySet Name="tb_J_MessageData" EntityType="Self.tb_J_MessageData" />
+          <EntitySet Name="tb_J_SchoolCourse" EntityType="Self.tb_J_SchoolCourse" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="kingsundbNewModelStoreContainer" CdmEntityContainer="kingsundbNewEntities">
+          <EntitySetMapping Name="tb_J_School">
+            <EntityTypeMapping TypeName="kingsundbNewModel.tb_J_School">
+              <MappingFragment StoreEntitySet="tb_J_School">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="SchoolFullName" ColumnName="SchoolFullName" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_J_Teacher">
+            <EntityTypeMapping TypeName="kingsundbNewModel.tb_J_Teacher">
+              <MappingFragment StoreEntitySet="tb_J_Teacher">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="TeacherSex" ColumnName="TeacherSex" />
+                <ScalarProperty Name="TeacherTel" ColumnName="TeacherTel" />
+                <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IDNum" ColumnName="IDNum" />
+                <ScalarProperty Name="BankNum" ColumnName="BankNum" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_J_TestOrder">
+            <EntityTypeMapping TypeName="kingsundbNewModel.tb_J_TestOrder">
+              <MappingFragment StoreEntitySet="tb_J_TestOrder">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="FreeNum" ColumnName="FreeNum" />
+                <ScalarProperty Name="UpTime" ColumnName="UpTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_J_ExamStudent">
+            <EntityTypeMapping TypeName="kingsundbNewModel.tb_J_ExamStudent">
+              <MappingFragment StoreEntitySet="tb_J_ExamStudent">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="YK_num" ColumnName="YK_num" />
+                <ScalarProperty Name="SK_num" ColumnName="SK_num" />
+                <ScalarProperty Name="QK_num" ColumnName="QK_num" />
+                <ScalarProperty Name="UpTime" ColumnName="UpTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_J_MessageData">
+            <EntityTypeMapping TypeName="kingsundbNewModel.tb_J_MessageData">
+              <MappingFragment StoreEntitySet="tb_J_MessageData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+                <ScalarProperty Name="K_Number" ColumnName="K_Number" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="YW_RoomNum" ColumnName="YW_RoomNum" />
+                <ScalarProperty Name="YW_SiteNum" ColumnName="YW_SiteNum" />
+                <ScalarProperty Name="LS_RoomNum" ColumnName="LS_RoomNum" />
+                <ScalarProperty Name="LS_SiteNum" ColumnName="LS_SiteNum" />
+                <ScalarProperty Name="WS_RoomNum" ColumnName="WS_RoomNum" />
+                <ScalarProperty Name="WS_SiteNum" ColumnName="WS_SiteNum" />
+                <ScalarProperty Name="EN_RoomNum" ColumnName="EN_RoomNum" />
+                <ScalarProperty Name="EN_SiteNum" ColumnName="EN_SiteNum" />
+                <ScalarProperty Name="LZ_RoomNum" ColumnName="LZ_RoomNum" />
+                <ScalarProperty Name="LZ_SiteNum" ColumnName="LZ_SiteNum" />
+                <ScalarProperty Name="WZ_RoomNum" ColumnName="WZ_RoomNum" />
+                <ScalarProperty Name="WZ_SiteNum" ColumnName="WZ_SiteNum" />
+                <ScalarProperty Name="ZK_Number" ColumnName="ZK_Number" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="StudentClass" ColumnName="StudentClass" />
+                <ScalarProperty Name="YW_Teacher" ColumnName="YW_Teacher" />
+                <ScalarProperty Name="LiShu_Teacher" ColumnName="LiShu_Teacher" />
+                <ScalarProperty Name="WS_Teacher" ColumnName="WS_Teacher" />
+                <ScalarProperty Name="EN_Teacher" ColumnName="EN_Teacher" />
+                <ScalarProperty Name="WL_Teacher" ColumnName="WL_Teacher" />
+                <ScalarProperty Name="HX_Teacher" ColumnName="HX_Teacher" />
+                <ScalarProperty Name="SW_Teacher" ColumnName="SW_Teacher" />
+                <ScalarProperty Name="ZZ_Teacher" ColumnName="ZZ_Teacher" />
+                <ScalarProperty Name="LiShi_Teacher" ColumnName="LiShi_Teacher" />
+                <ScalarProperty Name="DL_Teacher" ColumnName="DL_Teacher" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_J_SchoolCourse">
+            <EntityTypeMapping TypeName="kingsundbNewModel.tb_J_SchoolCourse">
+              <MappingFragment StoreEntitySet="tb_J_SchoolCourse">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
